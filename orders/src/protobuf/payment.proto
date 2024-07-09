@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+service PaymentService {
+  rpc ProcessPayment(ProcessPaymentRequest) returns (ProcessPaymentResponse);
+}
+
+message ProcessPaymentRequest {
+    string order_id = 1;
+    double amount = 2;
+    string payment_method = 3;
+    string status = 4;
+    string transaction_id  = 5;
+    string payment_date = 6;
+}
+
+message ProcessPaymentResponse {
+    int32 id = 1;
+    string order_id = 2;
+    double amount = 3;
+    string payment_method = 4;
+    string status = 5;
+    string transaction_id = 6;
+    string payment_date = 7;
+    string confirmation_date = 8;
+    bool payment_confirmed = 9;
+}
